@@ -11,7 +11,7 @@ export default function SimpleBottomNavigation() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (value === 0) navigate("/");
+    if (value === 0) navigate("/mediahub-app/");
     else if (value === 1) navigate("/mediahub-app/movies");
     else if (value === 2) navigate("/mediahub-app/series");
     else if (value === 3) navigate("/mediahub-app/search");

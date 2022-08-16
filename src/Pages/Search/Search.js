@@ -15,7 +15,7 @@ import "./Search.css";
 
 const Search = () => {
   const [type, setType] = useState(0);
-  const [inputValue, setInputValue] = useState("moon");
+  const [inputValue, setInputValue] = useState("");
   const [page, setPage] = useState(1);
   const [content, setContent] = useState([]);
   const [numOfPages, setNumOfPages] = useState();

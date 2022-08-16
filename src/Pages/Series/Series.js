@@ -11,23 +11,23 @@ const Series = () => {
   const [content, setContent] = useState([]);
   const [numOfPages, setNumOfPages] = useState();
   const [selectedGenres, setSelectedGenres] = useState([]);
-  const [genres, setGenres] = useState();
+  const [genres, setGenres] = useState([]);
   const genreforURL = useGenre(selectedGenres);
 
   const fetchTV = async () => {
     const { data } = await axios.get(
       `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_watch_monetization_types=${genreforURL}`
     );
-    //   console.log(data);
+
     setContent(data.results);
-    setNumOfPages(data.total_pages);
+    setNumOfPages(500);
   };
   useEffect(() => {
     window.scroll(0, 0);
     fetchTV();
 
     // eslint-disable-next-line
-  }, [page, genreforURL]);
+  }, [genreforURL, page]);
 
   return (
     <div>

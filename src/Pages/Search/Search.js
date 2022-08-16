@@ -11,17 +11,15 @@ import SearchIcon from "@mui/icons-material/Search";
 import axios from "axios";
 import SingleContent from "../../components/SingleContent/SingleContent";
 import CustomPagination from "../../components/Pagination/CustomPagination";
+import "./Search.css";
 
 const Search = () => {
-  const API_KEY = "2b2dbfafdd3b2b1918dde58820b8fc6a";
   const [type, setType] = useState(0);
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState("moon");
   const [page, setPage] = useState(1);
   const [content, setContent] = useState([]);
   const [numOfPages, setNumOfPages] = useState();
 
-
-  
   const darkTheme = createTheme({
     palette: {
       mode: "dark",
@@ -33,9 +31,9 @@ const Search = () => {
 
   const fetchSearch = async () => {
     const { data } = await axios.get(
-      `https://api.themoviedb.org/3/search/${
-        type ? "tv" : "movie"
-      }?api_key=${API_KEY}&language=en-US&query=${inputValue}&page=${page}&include_adult=false`
+      `https://api.themoviedb.org/3/search/${type ? "tv" : "movie"}?api_key=${
+        process.env.REACT_APP_API_KEY
+      }&language=en-US&page=${page}&query=${inputValue}&include_adult=false`
     );
     setContent(data.results);
     setNumOfPages(data.total_pages);

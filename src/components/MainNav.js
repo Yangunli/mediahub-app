@@ -12,9 +12,9 @@ export default function SimpleBottomNavigation() {
 
   useEffect(() => {
     if (value === 0) navigate("/");
-    else if (value === 1) navigate("/movies");
-    else if (value === 2) navigate("/series");
-    else if (value === 3) navigate("/search");
+    else if (value === 1) navigate("/mediahub-app/movies");
+    else if (value === 2) navigate("/mediahub-app/series");
+    else if (value === 3) navigate("/mediahub-app/search");
   }, [value, navigate]);
 
   return (

@@ -3,6 +3,7 @@ import { img_300, unavailable } from "../../config/config";
 import "./SingleContent.css";
 import Badge from "@mui/material/Badge";
 import ContentModal from "../ContentModal/ContentModal";
+import "./SingleContent.css";
 
 //from trending
 const SingleContent = ({

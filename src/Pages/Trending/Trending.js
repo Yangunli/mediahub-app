@@ -5,13 +5,12 @@ import CustomPagination from "../../components/Pagination/CustomPagination";
 import "./Trending.css";
 
 const Trending = () => {
-  const API_KEY = "2b2dbfafdd3b2b1918dde58820b8fc6a";
   const [page, setPage] = useState(1);
   const [content, setContent] = useState([]);
   const fetchTrending = async () => {
     //data：傳送給伺服器的資料 ; params：在URL裏要加上的参數
     const { data } = await axios.get(
-      `https://api.themoviedb.org/3/trending/all/day?api_key=${API_KEY}&page=${page}`
+      `https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.REACT_APP_API_KEY}&page=${page}`
     );
     console.log(data);
     setContent(data.results);

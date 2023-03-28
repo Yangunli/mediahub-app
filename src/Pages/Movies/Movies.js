@@ -19,14 +19,12 @@ const Movies = () => {
     );
 
     setContent(data.results);
-    console.log(genreforURL, content);
     setNumOfPages(data.total_pages >= 500 ? 500 : data.total_pages);
   };
 
   useEffect(() => {
     window.scroll(0, 0);
     fetchMovies();
-    // console.log(genreforURL);
     // eslint-disable-next-line
   }, [genreforURL, page]);
   return (
